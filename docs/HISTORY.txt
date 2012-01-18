@@ -7,4 +7,4 @@ Products/PromoEngine/CHANGES.txt.
 0.9a9 - 2012-01-18
 ------------------
 
-    - Plone 4 compatibility.
+    - Plone 4 compatibility and eggyfication.
