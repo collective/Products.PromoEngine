@@ -1,0 +1,42 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+
+  <include package="plone.app.portlets" />
+
+  <browser:page
+    for="*"
+    name="ad_fetcher"
+    class=".adfetcher.AdFetcher"
+    permission="zope.Public"
+    allowed_interface=".interfaces.IAdFetcher"
+    />
+    
+  <plone:portlet
+    name="promoengine.ad_blank"
+    interface=".portlets.adblank.IAdBlankPortlet"
+    assignment=".portlets.adblank.Assignment"
+    renderer=".portlets.adblank.Renderer"
+    addview=".portlets.adblank.AddForm"
+    editview=".portlets.adblank.EditForm"
+    />
+
+  <plone:portlet
+    name="promoengine.ad_default"
+    interface=".portlets.addefault.IAdDefaultPortlet"
+    assignment=".portlets.addefault.Assignment"
+    renderer=".portlets.addefault.Renderer"
+    addview=".portlets.addefault.AddForm"
+    editview=".portlets.addefault.EditForm"
+    />
+
+    <!-- Banner viewlet 
+    <browser:viewlet
+        name="promoengine.banner"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.AdBannerViewlet"
+        permission="zope.Public"
+        />
+    -->
+</configure>

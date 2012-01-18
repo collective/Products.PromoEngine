@@ -1,0 +1,38 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+.advertisement {
+  border: 1px solid &dtml-globalBorderColor;;
+  text-align: center;
+  padding: 5px;
+  margin: 1.3em 0;
+}
+
+/*.editAd {
+    background-image: url(&dtml-portal_url;/ad_icon.gif);
+    background-repeat: no-repeat;
+    padding-left: 18px;
+}*/
+
+.editPromoButton {
+    float: right;
+    margin-right: 80px;
+    z-index: 99;
+}
+
+.editPromoButton a.editAd {
+    padding: 3px 0px !important;
+    color: #ffffff !important;
+    background-color: #003466 !important;
+    border: 1px solid #888888;
+    position: absolute;
+    width: 80px;
+    text-align: center;
+    z-index: 5;
+}
+
+.editPromoButton a.editAd:hover {
+    text-decoration: underline;
+}
+
+/* </dtml-with> */

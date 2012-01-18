@@ -1,0 +1,82 @@
+0.5.2 - 2007-04-18
+
+    - Added 'Installation' info to the README since GenericSetup isn't all that
+      straight forward
+
+    - Fixed a bug when trying to run the profile when creating a Plone Site.
+      The processForm() in exportimport/assigntitles needed to have an empty
+      dict passed in to avoid crashing.
+
+    - Added an override for catalog node index adapters so that running all
+      steps does not clear the indexes set up for the ad_catalog
+
+0.5.1 - 2007-04-10
+
+    - Fixed a bug were the context was being passed into getAd as None and the
+      default value was none.  So it was acting as if no context was passed in.
+
+    - Changed default value for object=False in the portlets.
+
+
+0.5 - 2007-02-26
+    
+    - WARNING: Major changes in this version that will not be backward
+      compatible to the 0.2 version.
+    
+    - There is now a 'BaseAd' that new ad types can be derived from
+    
+    - The normal 'Ad' type has been completely changed.  Instead of having a
+      very limited set of fields it now uses a RichText widget (kupu) to create
+      whatever layout of an ad that you like.
+      
+    - Removed the image size restrictions used via variable schema support
+      
+    - New 'Flash Ad' type that allows the uploading of flash for ads.  This is
+      done by leveraging the ATFlashMovie product thus creating two new 
+      dependencies: ATFlashMovie and ATColorPickerWidget
+      
+    - The portlets have been combined into one file per ad type
+    
+    - The 'Ad Manager' now accepts a new argument 'ad_types' so that ads can be
+      filtered by type via the portlet
+      
+    - Various other code improvements when implementing the new types
+
+0.2 - 2006-06-09
+
+    - fixed folder contents and views to work with plone 2.1 correctly
+    
+    - changed the Ad Catalog to subclass the Plone Catalog instead of CMFCore
+    
+    - changed the way the types were registered with Ad Catalog NOTE: you will
+      need to 'Clear and Rebuild' your existing 'portal_ad_catalog' to see the
+      types in the Ad Manager.
+    
+    - changed Ad Manager to be an ATFolder
+    
+    - set the title of the Ad Manager so that the title of the plone site wasn't
+      changed
+      
+    - added property sheet for Promo Engine in portal_properties to define the
+      review states that should show up when getAd is called
+
+    - added logic into the Ad Manager tool to check wether the object passed
+      in supports references.  And if it doesn't still allow the use of slots on
+      the object.
+      
+    - added promoEngine.css and put some basic styles in
+    
+    - updated trac with the TODO items
+      http://trac.sixfeetup.com/PromoEngine/roadmap
+      
+    - enabled the 'edit this ad' link in the ad_view for managers
+    
+    - fixed a bug in the Ad Manager type selection list where you would get a
+      BadRequest error if there was nothing selected
+      
+    - changed the tool.gif and added an ad_icon.gif content_icon for Ads and
+      billboard_icon.gif for the Ad Manager [egoens]
+
+0.1 - 2006-01-24
+
+    - initial import into the Plone Software Center

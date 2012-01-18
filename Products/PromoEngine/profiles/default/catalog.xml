@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="ad_catalog" meta_type="Ad Catalog">
+ <index name="UID" meta_type="FieldIndex">
+  <indexed_attr value="UID"/>
+ </index>
+ <index name="getAdSlot" meta_type="FieldIndex">
+  <indexed_attr value="getAdSlot"/>
+ </index>
+ <column value="UID"/>
+ <column value="getAdSlot"/>
+</object>

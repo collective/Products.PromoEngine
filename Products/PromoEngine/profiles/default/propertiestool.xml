@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+  <object name="promo_engine_properties" meta_type="Plone Property Sheet">
+    <property name="title">Promo Engine Properties</property>
+    <property name="ad_states" type="lines" purge="false">
+      <element value="published"/>
+    </property>
+  </object>
+  <object name="site_properties" meta_type="Plone Property Sheet">
+    <property name="typesUseViewActionInListings" type="lines" purge="False">
+      <element value="FlashAd"/>
+    </property>
+    <property name="types_not_searched" type="lines" purge="false">
+      <element value="FlashAd"/>
+      <element value="Ad"/>
+      <element value="Ad Folder"/>
+      <element value="Ad Manager"/>
+      <element value="AdManager"/>
+    </property>
+  </object>
+</object>

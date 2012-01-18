@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+  <export-step id="adcatalog"
+    handler="Products.PromoEngine.exportimport.adcatalog.exportAdCatalog"
+    title="Ad Catalog">
+    Export Ad Catalog
+  </export-step>
+</export-steps>

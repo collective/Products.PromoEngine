@@ -1,0 +1,52 @@
+<dl class="portlet portletAd"
+    tal:define="ads view/ad_items"
+    tal:condition="ads"
+    i18n:domain="plone">
+
+    <dt class="portletHeader"
+        tal:define="header_title view/data/header_title">
+        <span class="portletTopLeft"></span>
+        <tal:title condition="header_title"
+                   content="header_title" />
+        <tal:notitle condition="not:header_title">
+            &nbsp;
+        </tal:notitle>
+        <span class="portletTopRight"></span>
+    </dt>
+    <tal:ads tal:repeat="ad view/ad_items">
+        <dd tal:define="oddrow repeat/ad/odd;"
+            tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+            <span class="editPromoButton">
+                  <a tal:condition="python:user.has_role(['Reviewer','Manager'])"
+                     tal:attributes="class string:editAd;
+                                     href string:${ad/absolute_url}/base_edit">Edit this ad</a>
+              </span>
+        
+            <tal:ad define="flash_ad python:ad.portal_type == 'FlashAd';
+                            normal_ad python:ad.portal_type == 'Ad';">
+                <tal:normal_ad condition="normal_ad">
+                    <tal:text tal:define="text python:ad.CookedBody(stx_level=2)"
+                              tal:condition="text"
+                              tal:replace="structure text" />
+                    <div class="visualClear"><!-- --></div>
+                </tal:normal_ad>
+            
+                <tal:flash_ad condition="flash_ad">
+                    <object type="application/x-shockwave-flash"
+                            tal:attributes="width ad/getDisplayWidth|default;
+                                            height ad/getDisplayHeight|default;
+                                            bgcolor ad/getBgcolor|default;
+                                            data ad/absolute_url">
+                        <param name="movie"
+                               bgcolor="transparent" 
+                               tal:attributes="value ad/absolute_url;" />
+                        <param name="bgcolor"
+                               tal:attributes="value ad/getBgcolor|default;" />
+                    </object>
+                </tal:flash_ad>
+            </tal:ad>
+        </dd>
+    </tal:ads>
+
+
+</dl>

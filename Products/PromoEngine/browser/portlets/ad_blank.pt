@@ -1,0 +1,38 @@
+<div>
+    <tal:ads tal:repeat="ad view/ad_items">
+       <span class="editPromoButton">
+             <a tal:condition="python:user.has_role(['Reviewer','Manager'])"
+                tal:attributes="class string:editAd;
+                                href string:${ad/absolute_url}/base_edit">Edit this ad</a>
+         </span>
+        
+        <tal:ad define="flash_ad python:ad.portal_type == 'FlashAd';
+                        normal_ad python:ad.portal_type == 'Ad';">
+            <tal:normal_ad condition="normal_ad">
+                <div class="advertisement"
+                     tal:define="text python:ad.CookedBody(stx_level=2)">
+                    <div class="stx"
+                         tal:condition="text"
+                         tal:attributes="class string:fixme">
+                        <div tal:replace="structure text" />
+                    </div>
+                    <div class="visualClear"><!-- --></div>
+                </div>
+            </tal:normal_ad>
+            
+            <tal:flash_ad condition="flash_ad">
+                <object type="application/x-shockwave-flash"
+                        tal:attributes="width ad/getDisplayWidth|default;
+                                        height ad/getDisplayHeight|default;
+                                        bgcolor ad/getBgcolor|default;
+                                        data ad/absolute_url">
+                    <param name="movie"
+                           bgcolor="transparent" 
+                           tal:attributes="value ad/absolute_url;" />
+                    <param name="bgcolor"
+                           tal:attributes="value ad/getBgcolor|default;" />
+                </object>
+            </tal:flash_ad>
+        </tal:ad>
+    </tal:ads>
+</div>

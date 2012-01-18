@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<import-steps>
+  
+  <import-step 
+     id="adcatalog"
+     version="20061108-01"
+     handler="Products.PromoEngine.exportimport.adcatalog.importAdCatalog"
+     title="Ad Catalog">
+    <dependency step="toolset"/>
+    <dependency step="workflow" />
+    Import the Ad Catalog indexes
+  </import-step>
+  
+  <import-step
+    id="adcatalogtypes"
+    version="20070215"
+    handler="Products.PromoEngine.exportimport.adcatalogtypes.setupAdCatalogTypes"
+    title="Ad Catalog Types">
+   <dependency step="adcatalog"/>
+  </import-step>
+  
+  <import-step
+    id="assignadtooltitles"
+    version="20070215"
+    handler="Products.PromoEngine.exportimport.assigntitles.assignTitles"
+    title="Fix Tool Titles">
+   <dependency step="adcatalogtypes"/>
+  </import-step>
+
+</import-steps>

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en">
+
+<body>
+
+<metal:block metal:define-macro="flashobject"  tal:omit-tag="">
+    <object type="application/x-shockwave-flash"
+            data=""
+            width="320"
+            height="200"
+            bgcolor="transparent"
+            tal:attributes="width here/getDisplayWidth|default;
+                            height here/getDisplayHeight|default;
+                            bgcolor here/getBgcolor|default;
+                            data here_url">
+    <param name="movie"
+           value=""
+           bgcolor="transparent" 
+           tal:attributes="value here_url;" />
+     <param name="bgcolor"
+            value="transparent"
+            tal:attributes="value here/getBgcolor|default;" />
+  </object>
+</metal:block>
+
+<div metal:define-macro="flashinfo" class="discreet">
+    <span>Flash Version</span> : <span tal:content="here/flashversion">1</span><br />
+    <span>Size</span> : <span tal:content="here/width">1</span> X <span tal:content="here/height">1</span>
+</div>
+
+</body>
+</html>

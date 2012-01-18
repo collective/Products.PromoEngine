@@ -1,0 +1,80 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+
+
+<body>
+    <!-- Macro for ads on content items (no slot defined)-->
+    <metal:portlet define-macro="content"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(object=context,
+                                                   ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view)">
+            ad goes here
+         </metal:block>
+    </metal:portlet>
+    
+    <!-- Macro for ads on content items in 'Slot 1' (object and slot defined) -->
+    <metal:portlet define-macro="content_slot1"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(object=context,
+                                                   ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view,
+                                                   slot='Slot 1')">
+            ads for Slot 1
+         </metal:block>
+    </metal:portlet>
+    
+    <!-- Macro for ads on content items in 'Slot 2' (object and slot defined) -->
+    <metal:portlet define-macro="content_slot2"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(object=context,
+                                                   ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view,
+                                                   slot='Slot 2')">
+            ads for Slot 2
+         </metal:block>
+    </metal:portlet>
+    
+    <!-- Macro for ads on content items in 'Slot 3' (object and slot defined) -->
+    <metal:portlet define-macro="content_slot3"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(object = context,
+                                                   ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view,
+                                                   slot = 'Slot 3')">
+            ads for Slot 3
+         </metal:block>
+    </metal:portlet>
+    
+    <!-- Macro for ads in 'Slot 1' (only slot defined) -->
+    <metal:portlet define-macro="slot1"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view,
+                                                   slot='Slot 1')">
+            ads for Slot 1
+         </metal:block>
+    </metal:portlet>
+    
+    <!-- Macro for ads in 'Slot 2' (only slot defined) -->
+    <metal:portlet define-macro="slot2"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view,
+                                                   slot='Slot 2')">
+            ads for Slot 2
+         </metal:block>
+    </metal:portlet>
+    
+    <!-- Macro for ads in 'Slot 3' (only slot defined) -->
+    <metal:portlet define-macro="slot3"
+                   tal:define="view context/@@ad_fetcher">
+         <metal:block use-macro="python:view.getAd(ad_types = ['FlashAd'],
+                                                   template = context.flash_ad_view,
+                                                   slot='Slot 3')">
+            ads for Slot 3
+         </metal:block>
+    </metal:portlet>
+</body>
+</html>
+

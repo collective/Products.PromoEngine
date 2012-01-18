@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+	xmlns:cmf="http://namespaces.zope.org/cmf">
+
+  <cmf:registerDirectory
+       name="skins"
+       directory="skins"
+       recursive="True"
+       />
+  
+  <include package=".browser" />
+  <include file="profiles.zcml" />
+
+  <utility
+    component=".vocabularies.AdSlotsVocabularyFactory"
+    name="Products.PromoEngine.vocabularies.AdSlotsVocabulary"
+    />
+
+</configure>

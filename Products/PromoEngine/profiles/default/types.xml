@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_types" meta_type="Plone Types Tool">
+ <object name="Ad"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Ad Folder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Ad Manager"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="FlashAd"
+    meta_type="Factory-based Type Information with dynamic views"/>
+</object>

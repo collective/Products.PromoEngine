@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<portlets>
+  
+ <portlet 
+   addview="promoengine.ad_default"
+   title="Ad portlet (default style)"
+   description="A portlet that contain ads"
+   />
+
+ <portlet 
+   addview="promoengine.ad_blank"
+   title="Ad portlet (blank style)"
+   description="A portlet that contain ads.  Style controlled by the ad itself."
+   />
+
+</portlets>

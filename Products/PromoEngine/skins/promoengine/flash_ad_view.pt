@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <head><title></title></head>
+  <body>
+
+    <metal:view_macro define-macro="view">
+        <a tal:condition="python:user.has_role(['Reviewer','Manager'])"
+           tal:attributes="class string:editAd;
+                           href string:${ad/absolute_url}/base_edit">Edit this ad</a>
+        <object type="application/x-shockwave-flash"
+                tal:attributes="width ad/getDisplayWidth|default;
+                                height ad/getDisplayHeight|default;
+                                bgcolor ad/getBgcolor|default;
+                                data ad/absolute_url">
+            <param name="movie"
+                   bgcolor="transparent" 
+                   tal:attributes="value ad/absolute_url;" />
+            <param name="bgcolor"
+                   tal:attributes="value ad/getBgcolor|default;" />
+        </object>
+    </metal:view_macro>
+    
+    <metal:view_macro define-macro="empty">
+        <tal:comment replace="nothing">
+            <!--
+            This is the macro returned if there are no ads in the slot.
+            -->
+        </tal:comment>
+    </metal:view_macro>
+
+  </body>
+
+</html>
