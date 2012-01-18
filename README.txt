@@ -1,6 +1,1 @@
-Introduction
-============
-
-
-
-This product may contain traces of nuts.
+See Products/PromoEngine/README.txt

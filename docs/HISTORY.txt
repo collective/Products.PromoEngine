@@ -1,7 +1,10 @@
 Changelog
 =========
 
-0.9a9dev (unreleased)
----------------------
+For the changelog previous to version 0.9a9 see
+Products/PromoEngine/CHANGES.txt.
 
-- Initial release
+0.9a9 - 2012-01-18
+------------------
+
+    - Plone 4 compatibility.
