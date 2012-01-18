@@ -31,7 +31,5 @@ class AdCatalog(CatalogTool):
     portal_type = meta_type = 'Ad Catalog'
     
     implements(IAdCatalog)
-    
-    __implements__ = (CatalogTool.__implements__,)
 
 InitializeClass(AdCatalog)

@@ -1,3 +1,10 @@
+class ContentError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
 # get unsigned bits
 def _getUBits(bitList, bitPos, nr):
     valD = 0
@@ -19,7 +26,7 @@ def analyseContent(data):
         and returns header's data as a dictionary
     """
     if len(data)<=(8+17):
-        raise "Content error","data too small!"
+        raise ContentError("data too small!")
     # Uncompressed flash file
     if str(data[:3]) == 'FWS':
         compressed=0
@@ -27,7 +34,7 @@ def analyseContent(data):
     elif ((str(data[:3]) == 'CWS') or (str(data[:3]) == 'FWC')):
     	compressed=1
     else:
-        raise "Content error","This does not appear to be an SWF file!"
+        raise ContentError("This does not appear to be an SWF file!")
 
     version = str(ord(data[3]))
     uncompressed_size = ord(data[4]) + ord(data[5])*256 + ord(data[6])*256*256 + ord(data[7])*256*256*256
