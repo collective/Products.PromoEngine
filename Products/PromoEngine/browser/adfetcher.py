@@ -1,6 +1,7 @@
 from random import choice
 
 from zope.interface import implements
+from DateTime import DateTime
 from ZTUtils import LazyFilter
 
 from Products.CMFCore.utils import getToolByName
@@ -32,7 +33,11 @@ class AdFetcher(BrowserView):
         # try and except in case the object doesn't support references
         try:
             raw_object_ads = ad_context.getBRefs('AdLocation')
-            allowed_object_ads = LazyFilter(raw_object_ads, skip='View')
+            viewable_object_ads = LazyFilter(raw_object_ads, skip='View')
+            now = DateTime()
+            allowed_object_ads = [
+                ad for ad in viewable_object_ads
+                if ad.contentEffective(now)]
             # ads of a given type
             filtered_ads = [
                 obj for obj in allowed_object_ads
