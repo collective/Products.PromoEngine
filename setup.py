@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.9a9'
+version = '0.9a10'
 
 setup(name='Products.PromoEngine',
       version=version,
