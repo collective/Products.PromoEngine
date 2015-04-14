@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tool-setup>
+
+ <required tool_id="ad_manager" title="Ad Manager"
+           class="Products.PromoEngine.tools.admanager.AdManager" remove="True"/>
+ <required tool_id="ad_catalog" title="Ad Catalog"
+           class="Products.PromoEngine.tools.adcatalog.AdCatalog" remove="True"/>
+
+</tool-setup>

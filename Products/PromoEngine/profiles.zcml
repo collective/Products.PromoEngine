@@ -11,4 +11,12 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="PromoEngine Uninstalls"
+      description="Ad management product"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      />
+
 </configure>

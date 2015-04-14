@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="promo_portlets" meta_type="Filesystem Directory View"
+    directory="PromoEngine/skins/promo_portlets" remove="True"/>
+ <object name="promoengine" meta_type="Filesystem Directory View"
+    directory="PromoEngine/skins/promoengine" remove="True"/>
+ <skin-path name="*">
+  <layer name="promoengine" remove="True"/>
+  <layer name="promo_portlets" remove="True"/>
+ </skin-path>
+</object>
